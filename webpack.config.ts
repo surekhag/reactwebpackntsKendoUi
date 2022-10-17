@@ -5,6 +5,7 @@ import * as webpack from 'webpack';
 import * as webpackDevServer from 'webpack-dev-server';
 
 const config: Configuration = {
+  mode: 'development',
   entry: "./src/index.tsx",
   module: {
     rules: [
@@ -22,6 +23,20 @@ const config: Configuration = {
           },
         },
       },
+    //   {
+    //     test: /\.(sa|sc|c)ss$/,
+    //     use: [
+    //      {
+    //         loader: 'css-loader',
+    //         options: {
+    //             sourceMap: true,
+    //             modules: true,
+    //         }
+    //     }, 
+    //   ]
+    // },
+    // { test: /\.(c|sc)ss$/, loader: 'typings-for-css-modules-loader?modules&sass' },
+   
     ],
   },
   resolve: {
