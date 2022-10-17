@@ -23,20 +23,12 @@ const config: Configuration = {
           },
         },
       },
-    //   {
-    //     test: /\.(sa|sc|c)ss$/,
-    //     use: [
-    //      {
-    //         loader: 'css-loader',
-    //         options: {
-    //             sourceMap: true,
-    //             modules: true,
-    //         }
-    //     }, 
-    //   ]
-    // },
-    // { test: /\.(c|sc)ss$/, loader: 'typings-for-css-modules-loader?modules&sass' },
-   
+      {
+        test: /\.css$/,
+        // the order of `use` is important!
+        use: [{ loader: 'style-loader' }, { loader: 'css-loader' }],
+      },
+      
     ],
   },
   resolve: {

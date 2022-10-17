@@ -1,17 +1,14 @@
 {
-        "empInfo":
-            
-            [
-                {
-                "name" : "Surekha Gadkari",
-                "designation" : "Senior Software Engineer"
-                },
-            {
-                "name" : "Chaita Kanthi",
-
-                "designation" : "Senior Software Engineer"
-                }
-        ]
-        
-
+    "empInfo": [
+        {
+            "name": "Surekha Gadkari",
+            "designation": "Senior Software Engineer",
+            "location": "Mumbai"
+        },
+        {
+            "name": "Chaita Kanthi",
+            "designation": "Senior Software Engineer",
+            "location": "Bengaluru"
+        }
+    ]
 }
