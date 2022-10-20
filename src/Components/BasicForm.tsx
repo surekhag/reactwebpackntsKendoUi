@@ -1,10 +1,10 @@
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import React, { useState } from 'react';
 import { Form, Field, FormElement, FieldRenderProps, FormRenderProps } from '@progress/kendo-react-form';
 import { Error } from '@progress/kendo-react-labels';
 import { Input } from '@progress/kendo-react-inputs';
 import { Button } from "@progress/kendo-react-buttons";
 
+import SharedButtons from "../SharedComps/SharedButtons"
 import { Fade } from "@progress/kendo-react-animation";
 
 const Styles = require("../Styles/BasicForm.css");
@@ -49,82 +49,98 @@ const FirstNameInput = (fieldRenderProps: FieldRenderProps) => {
 };
 
 const BasicForm = () => {
-    const [state, setState] = React.useState<State>({
+    const [state, setState] = useState<State>({
         success: false
     });
 
+    const [isDisplayed, setIsDisplayed] = useState(false);
     const { success } = state;
     const handleSubmit = (dataItem: { [name: string]: any }) => {
-        // console.log("data", dataItem)
         const node = document.getElementById("clear")
         node.click();
         setState({ ...state, success: true })
     }
 
+    const HandleShowClick = () => {
+        setIsDisplayed(true);
+    }
+    const HandleHideClick = () => {
+        setIsDisplayed(false);
+    }
+
     return (<>
-        <h3>Form Implementation in Kendo UI</h3>
-        <Form
-            onSubmit={handleSubmit}
-            render={(formRenderProps: FormRenderProps) => (
-                <FormElement style={{ maxWidth: 650 }}>
-                    <fieldset className={'k-form-fieldset'}>
-                        <legend className={'k-form-legend sub-text'}>Please fill in the details:</legend>
-                        <div className="mb-3">
-                            <Field name={'firstName'} component={FirstNameInput} label={'First name'}
-                                validator={nameValidator} />
-                        </div>
+        <h3>Form Implementation</h3>
+        <SharedButtons
+            isDisplayed={isDisplayed}
+            HandleShowClick={HandleShowClick}
+            HandleHideClick={HandleHideClick}
+            title1={"Show Form"}
+            title2={"Hide Form"} />
 
-                        <div className="mb-3">
-                            <Field name={'lastName'} component={Input} label={'Last name'} />
-                        </div>
-                        <div className="mb-3">
-                            <Field name={'desn'} component={Input} label={'Designation'} />
-                        </div>
-                        <div className="mb-3">
-                            <Field name={'empId'} component={Input} label={'Employee Id'} />
-                        </div>
+        {isDisplayed && <>
 
-                        <div className="mb-3">
-                            <Field name={"email"} type={"email"} component={EmailInput} label={"Email"}
-                                validator={emailValidator} />
+            <Form
+                onSubmit={handleSubmit}
+                render={(formRenderProps: FormRenderProps) => (
+                    <FormElement style={{ maxWidth: 650 }}>
+                        <fieldset className={'k-form-fieldset'}>
+                            <legend className={'k-form-legend sub-text'}>Please fill in the details:</legend>
+                            <div className="mb-3">
+                                <Field name={'firstName'} component={FirstNameInput} label={'First name'}
+                                    validator={nameValidator} />
+                            </div>
+
+                            <div className="mb-3">
+                                <Field name={'lastName'} component={Input} label={'Last name'} />
+                            </div>
+                            <div className="mb-3">
+                                <Field name={'desn'} component={Input} label={'Designation'} />
+                            </div>
+                            <div className="mb-3">
+                                <Field name={'empId'} component={Input} label={'Employee Id'} />
+                            </div>
+
+                            <div className="mb-3">
+                                <Field name={"email"} type={"email"} component={EmailInput} label={"Email"}
+                                    validator={emailValidator} />
+                            </div>
+                        </fieldset>
+                        <div className="k-form-buttons">
+                            <Button
+                                type={'submit'}
+                                className="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base"
+                                disabled={!formRenderProps.allowSubmit}
+                            >
+                                Submit
+                            </Button>
+
+                            <Button id="clear" onClick={formRenderProps.onFormReset}>Clear</Button>
+
                         </div>
-                    </fieldset>
-                    <div className="k-form-buttons">
-                        <Button
-                            type={'submit'}
-                            className="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base"
-                            disabled={!formRenderProps.allowSubmit}
-                        >
-                            Submit
-                        </Button>
-
-                        <Button id="clear" onClick={formRenderProps.onFormReset}>Clear</Button>
-
-                    </div>
-                </FormElement>
-            )}
-        />
-        <NotificationGroup
-            style={{
-                right: 0,
-                top: 0,
-                alignItems: "flex-start",
-                flexWrap: "wrap-reverse",
-            }}
-        >
-            <Fade>
-                {success && (
-                    <Notification
-                        type={{ style: "success", icon: true }}
-                        closable={true}
-                        onClose={() => setState({ ...state, success: false })}
-                    >
-                        <span>Form detail has been saved!</span>
-                    </Notification>
+                    </FormElement>
                 )}
-            </Fade>
-        </NotificationGroup>
-    </>
+            />
+            <NotificationGroup
+                style={{
+                    right: 0,
+                    top: 0,
+                    alignItems: "flex-start",
+                    flexWrap: "wrap-reverse",
+                }}
+            >
+                <Fade>
+                    {success && (
+                        <Notification
+                            type={{ style: "success", icon: true }}
+                            closable={true}
+                            onClose={() => setState({ ...state, success: false })}
+                        >
+                            <span>Form detail has been saved!</span>
+                        </Notification>
+                    )}
+                </Fade>
+            </NotificationGroup>
+        </> }</>
     );
 };
 export default BasicForm;

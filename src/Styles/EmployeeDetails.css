@@ -30,3 +30,12 @@ h3{
 .k-notification-container {
     margin: 6px;
 }
+.k-button-solid-base {
+    background-color: blue;
+    color: beige;
+}
+.headtext {
+    padding-top: 10px;
+    text-align: center;
+    color: unset;
+}

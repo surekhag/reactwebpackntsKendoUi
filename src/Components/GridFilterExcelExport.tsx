@@ -57,11 +57,10 @@ const GridFilterExcelExport = (): JSX.Element => {
   
    React.useEffect(()=>{
     let temp = filterBy(products, filter).slice(page.skip, page.skip + page.take)
-    console.log("data", temp);
     setData([...temp])
    }, [filter]);
     return (<>
-      <h3> Grid | Pagination | Filter |Export</h3>
+      <h3> Grid with Filter</h3>
       <ExcelExport ref={_export}>
       <Grid
         style={{ height: '420px' }}

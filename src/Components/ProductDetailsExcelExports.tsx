@@ -68,7 +68,7 @@ const ProductDetailsExcelExports = (): JSX.Element => {
 
 
   return (<>
-    <h3> Kendo UI Grid with Excel export(All records)</h3>
+    <h3>Grid with Excel export</h3>
     <ExcelExport ref={_export}>
       {GridComp}
     </ExcelExport>
