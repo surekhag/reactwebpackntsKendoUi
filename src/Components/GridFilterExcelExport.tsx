@@ -61,7 +61,7 @@ const GridFilterExcelExport = (): JSX.Element => {
     setData([...temp])
    }, [filter]);
     return (<>
-      <h1> Grid | Pagination | Filter |Export</h1>
+      <h3> Grid | Pagination | Filter |Export</h3>
       <ExcelExport ref={_export}>
       <Grid
         style={{ height: '420px' }}

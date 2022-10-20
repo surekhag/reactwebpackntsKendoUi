@@ -23,6 +23,7 @@
     "@progress/kendo-react-grid": "^5.8.0",
     "@progress/kendo-react-inputs": "^5.8.0",
     "@progress/kendo-react-intl": "^5.8.0",
+    "@progress/kendo-react-notification": "^5.8.0",
     "@progress/kendo-react-pdf": "^5.8.0",
     "@progress/kendo-react-treeview": "^5.8.0",
     "@progress/kendo-theme-default": "^5.9.0",

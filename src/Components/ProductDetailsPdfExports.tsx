@@ -57,7 +57,7 @@ const ProductDetailsPdfExports = (): JSX.Element => {
 
     
     return (<>
-        <h1> Kendo UI Grid with PDF export</h1>
+        <h3> Kendo UI Grid with PDF export</h3>
         {GridComp }
         <GridPDFExport ref={(pdfExport) => (gridPDFExport = pdfExport)}>
             {GridComp }

@@ -16,3 +16,17 @@ padding: 2px;
     font-weight: bold;
     text-align: center;
 }
+h3{
+    padding-top: 10px;
+    text-decoration: underline;
+    color: blue;
+}
+.k-button {
+    margin: 5px
+}
+.k-button:disabled, .k-button.k-disabled {
+    background-color: #afa6a6;
+}
+.k-notification-container {
+    margin: 6px;
+}
