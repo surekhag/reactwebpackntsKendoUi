@@ -10,13 +10,14 @@ import products from "../Configs/Products.json";
 import '@progress/kendo-theme-default/dist/all.css';
 import { process, State } from "@progress/kendo-data-query";
 import { GridPDFExport } from "@progress/kendo-react-pdf";
+const styles = require("../Styles/Grid.css");
 
 const initialDataState: State = {
     sort: [{ field: "code", dir: "asc" }],
     take: 10,
     skip: 0,
 };
-const ProductDetails = (): JSX.Element => {
+const ProductDetailsPdfExports = (): JSX.Element => {
     let gridPDFExport: GridPDFExport | null;
     const exportPDF = () => {
         if (gridPDFExport !== null) {
@@ -27,6 +28,7 @@ const ProductDetails = (): JSX.Element => {
     const [dataState, setDataState] = React.useState<State>(initialDataState);
     const GridComp =
          <Grid
+         id="prods"
             pageable={true}
             style={{
                 height: "400px",
@@ -62,4 +64,4 @@ const ProductDetails = (): JSX.Element => {
         </GridPDFExport>
     </>);
 }
-export default ProductDetails;
+export default ProductDetailsPdfExports;
