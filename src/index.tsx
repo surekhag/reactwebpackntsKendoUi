@@ -4,12 +4,13 @@ import EmployeeDetails from "./Components/EmployeeDetails"
 import BasicForm from "./Components/BasicForm"
 import '@progress/kendo-theme-default/dist/all.css';
 import Products from "./Components/Products";
-
+import CrudOperations from "./Components/CrudOperations/CrudOperations"
 const App = () => (
   <>
-  <EmployeeDetails />
+  <CrudOperations />
+  {/* <EmployeeDetails />
   <BasicForm />
-  <Products />
+  <Products /> */}
   </>
 );
 
