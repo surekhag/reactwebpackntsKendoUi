@@ -10,7 +10,7 @@ import {
 
 import { MyCommandCell } from "./MyCommandCell";
 import { insertItem, getItems, updateItem, deleteItem } from "./Services";
-import { Product } from "intefaces";
+import { Product } from "./Interfaces";
 
 const editField: string = "inEdit";
 
