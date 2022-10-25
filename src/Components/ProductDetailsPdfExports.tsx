@@ -28,10 +28,15 @@ const ProductDetailsPdfExports = (): JSX.Element => {
         }
     };
    
-    const CommandCell = (props: GridCellProps) => {
+    const ImageCell = (props: GridCellProps) => {
         const dataItem = props.dataItem && props.dataItem.Image;
         return ( <td className="k-command-cell"><img src={dataItem} width ="25px" height="25px" 
         className="avatar"/></td>)
+    }
+    const LinkCell = (props: GridCellProps) => {
+        const dataItem = props.dataItem && props.dataItem.Image;
+        return ( <td className="k-command-cell"><a href={dataItem} target= "_blank"
+        className="avatarLink">Avatar</a></td>)
     }
 
     const [dataState, setDataState] = React.useState<State>(initialDataState);
@@ -64,7 +69,8 @@ const ProductDetailsPdfExports = (): JSX.Element => {
             <GridColumn field="Category.CategoryName" title="CategoryName" />
             <GridColumn field="UnitPrice" title="Price" />
             <GridColumn field="UnitsInStock" title="In stock" />
-            <GridColumn field= "" cell ={CommandCell} title="Avatar"/>
+            <GridColumn field= "" cell ={ImageCell} title="Avatar"/>
+            <GridColumn field= "" cell ={LinkCell} title="Link"/>
         </Grid>
 
     

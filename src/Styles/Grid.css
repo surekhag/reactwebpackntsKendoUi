@@ -15,3 +15,7 @@
 .avatar {
     padding: 8px 12px;
 }
+.avatarLink{
+    text-decoration: underline !important;
+    color: blue !important;
+}
