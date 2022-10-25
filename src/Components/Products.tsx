@@ -4,7 +4,7 @@ import ProductDetailsExcelExports from "./ProductDetailsExcelExports"
 import GridFilterExcelExport from "./GridFilterExcelExport"
 import SharedButtons from "../SharedComps/SharedButtons"
 const Products = () => {
-    const [isDisplayed, setIsDisplayed] = useState(false);
+    const [isDisplayed, setIsDisplayed] = useState(true);
 
 
     const HandleShowClick = () => {
