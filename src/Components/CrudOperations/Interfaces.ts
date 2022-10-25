@@ -19,7 +19,8 @@ export interface Product {
     Category?: ProductCategory,
     expanded?: boolean,
     inEdit?: boolean | string,
-    locked?: boolean
+    locked?: boolean,
+    FirstOrderedOn?: Date,
 }
 
 export interface columnInterface {

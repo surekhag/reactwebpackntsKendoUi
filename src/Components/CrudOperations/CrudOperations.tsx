@@ -126,13 +126,13 @@ class CrudOperations extends React.Component {
             </GridToolbar>
             <Column field="ProductID" title="Id" width="50px" editable={false} />
             <Column field="ProductName" title="Product Name" width="200px" />
-            <Column
+            {/* <Column
               field="FirstOrderedOn"
               title="First Ordered"
               editor="date"
               format="{0:d}"
               width="150px"
-                />
+                /> */}
             <Column
               field="UnitsInStock"
               title="Units"
