@@ -15,12 +15,20 @@ import {
   ExcelExportColumnGroup,
 } from "@progress/kendo-react-excel-export";
 
+import { Fade } from "@progress/kendo-react-animation";
+import {
+  Notification,
+  NotificationGroup,
+} from "@progress/kendo-react-notification";
+
 import { Popup } from "@progress/kendo-react-popup";
 interface PageInterface {
   skip: number;
   take: number;
 }
-
+interface State1 {
+  success: boolean;
+}
 const initialDataState: State = {
   sort: [{ field: "code", dir: "asc" }],
   take: 10,
@@ -28,8 +36,13 @@ const initialDataState: State = {
 };
 const ProductDetailsExcelExports = (): JSX.Element => {
   const anchor = React.useRef<HTMLButtonElement | null>(null);
-  const [show, setShow] = React.useState(false);
+  const [state, setState] = React.useState<State1>({
+    success: false
+});
 
+
+  const [show, setShow] = React.useState(false);
+  const { success } = state;
   const _export = React.useRef<ExcelExport | null>(null);
   const _grid = React.useRef<any>();
   const [page, setPage] = React.useState<PageInterface>({ skip: 0, take: 10 });
@@ -38,6 +51,7 @@ const ProductDetailsExcelExports = (): JSX.Element => {
     if (_export.current !== null) {
       _export.current.save(products.slice(page.skip, page.skip + page.take));
     }
+    setState({success : true})
   };
 
   const onClick = () => {
@@ -89,6 +103,27 @@ const ProductDetailsExcelExports = (): JSX.Element => {
     <ExcelExport ref={_export}>
       {GridComp}
     </ExcelExport>
+    <NotificationGroup
+                style={{
+                    right: 0,
+                    top: "50%",
+                    alignItems: "flex-start",
+                    flexWrap: "wrap-reverse",
+                }}
+            >
+                <Fade>
+                    {success && (
+                        <Notification
+                            type={{ style: "success", icon: true }}
+                            closable={true}
+                            onClose={() => setState({ ...state, success: false })}
+                        >
+                            <span>Employee Informetion is displayed!</span>
+                        </Notification>
+                    )}
+                </Fade>
+              </NotificationGroup>
+
   </>);
 }
 export default ProductDetailsExcelExports;
