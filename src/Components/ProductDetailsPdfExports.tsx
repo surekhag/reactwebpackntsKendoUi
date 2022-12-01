@@ -13,6 +13,7 @@ import products from "../Configs/Products.json";
 import '@progress/kendo-theme-default/dist/all.css';
 import { process, State } from "@progress/kendo-data-query";
 import { GridPDFExport } from "@progress/kendo-react-pdf";
+import SharedTooltip from "../SharedComps/SharedTooltip";
 const styles = require("../Styles/Grid.css");
 
 const initialDataState: State = {
@@ -33,6 +34,16 @@ const ProductDetailsPdfExports = (): JSX.Element => {
         return ( <td className="k-command-cell"><img src={dataItem} width ="25px" height="25px" 
         className="avatar"/></td>)
     }
+    // Category with tooltip
+    const CategoryCell = (props: GridCellProps) => {
+        const {Category} = props.dataItem;
+        return ( Category &&
+            <td className="k-command-cell">{Category.CategoryName} 
+                <SharedTooltip title={Category.Description}></SharedTooltip>
+            </td>
+        )
+    }
+
     const LinkCell = (props: GridCellProps) => {
         const dataItem = props.dataItem && props.dataItem.Image;
         return ( <td className="k-command-cell"><a href={dataItem} target= "_blank"
@@ -66,7 +77,8 @@ const ProductDetailsPdfExports = (): JSX.Element => {
             {/* <GridColumn field="Image" title={title} width="100px" /> */}
             <GridColumn field="ProductID" title="ID" width="40px" />
             <GridColumn field="ProductName" title="Name" width="250px" />
-            <GridColumn field="Category.CategoryName" title="CategoryName" />
+            {/* <GridColumn field="Category.CategoryName" title="CategoryName" /> */}
+            <GridColumn field="" cell={CategoryCell} title="CategoryName" />
             <GridColumn field="UnitPrice" title="Price" />
             <GridColumn field="UnitsInStock" title="In stock" />
             <GridColumn field= "" cell ={ImageCell} title="Avatar"/>

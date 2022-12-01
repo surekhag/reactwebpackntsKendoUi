@@ -3,6 +3,7 @@ import ProductDetailsPdfExports from "./ProductDetailsPdfExports"
 import ProductDetailsExcelExports from "./ProductDetailsExcelExports"
 import GridFilterExcelExport from "./GridFilterExcelExport"
 import SharedButtons from "../SharedComps/SharedButtons"
+import ProductColumnExpand from "./ProductColumnExpand";
 const Products = () => {
     const [isDisplayed, setIsDisplayed] = useState(false);
 
@@ -24,6 +25,7 @@ const Products = () => {
             title2={"Hide Products Grid"}
         />
         {isDisplayed && <>
+            <ProductColumnExpand />
             <ProductDetailsPdfExports />
             <ProductDetailsExcelExports />
             <GridFilterExcelExport />

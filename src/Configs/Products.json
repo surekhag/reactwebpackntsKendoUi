@@ -14,7 +14,14 @@
         "CategoryID" : 1,
         "CategoryName" : "Beverages",
         "Description" : "Soft drinks, coffees, teas, beers, and ales"
-    }
+    },
+    "details": [
+        {
+            "ProductID" : 1,
+            "ProductName" : "Chai",
+            "UnitPrice" : 1
+        }
+    ]
 }, {
     "ProductID" : 2,
     "ProductName" : "Chang",
@@ -31,7 +38,14 @@
         "CategoryName" : "Beverages",
         "Description" : "Soft drinks, coffees, teas, beers, and ales"
     },
-    "Image" :"https://th.bing.com/th/id/OIP.BFw2u7lMdjCiEfLPAGQH7gHaE8?pid=ImgDet&rs=1"
+    "Image" :"https://th.bing.com/th/id/OIP.BFw2u7lMdjCiEfLPAGQH7gHaE8?pid=ImgDet&rs=1",
+    "details": [
+        {
+            "ProductID" : 2,
+            "ProductName" : "Chai",
+            "UnitPrice" : 1
+        }
+    ]
     
 }, {
     "ProductID" : 3,
@@ -49,7 +63,14 @@
         "CategoryName" : "Condiments",
         "Description" : "Sweet and savory sauces, relishes, spreads, and seasonings"
     },
-    "Image" :"https://th.bing.com/th/id/OIP.BFw2u7lMdjCiEfLPAGQH7gHaE8?pid=ImgDet&rs=1"
+    "Image" :"https://th.bing.com/th/id/OIP.BFw2u7lMdjCiEfLPAGQH7gHaE8?pid=ImgDet&rs=1",
+    "details": [
+        {
+            "ProductID" : 3,
+            "ProductName" : "Chai",
+            "UnitPrice" : 1
+        }
+    ]
     
 }, {
     "ProductID" : 4,
