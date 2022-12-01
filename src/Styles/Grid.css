@@ -6,10 +6,13 @@
     background-color: #fae1ed;
 }
 
-.k-grid-header {
+.k-grid-header, .k-grid-header th.k-grid-header-sticky {
     background-color: lightblue !important;
 }
-.k-grid-container .k-grid-content{
+.k-detail-cell .k-grid-header {
+    background-color: #add8e64f!important;
+}
+#prods .k-grid-container .k-grid-content{
     background-color: #e8e2e5;
 }
 .avatar {
