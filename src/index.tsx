@@ -4,11 +4,13 @@ import EmployeeDetails from "./Components/EmployeeDetails"
 import BasicForm from "./Components/BasicForm"
 import '@progress/kendo-theme-default/dist/all.css';
 import Products from "./Components/Products";
+import MultiInputForm from "./Components/MultiInputForm";
 
 const App = () => (
   <>
   <EmployeeDetails />
   <BasicForm />
+  <MultiInputForm />
   <Products />
   </>
 );

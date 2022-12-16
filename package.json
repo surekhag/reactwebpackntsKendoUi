@@ -20,6 +20,7 @@
     "@progress/kendo-react-dateinputs": "^5.8.0",
     "@progress/kendo-react-dropdowns": "^5.8.0",
     "@progress/kendo-react-excel-export": "^5.8.0",
+    "@progress/kendo-react-form": "^5.9.0",
     "@progress/kendo-react-grid": "^5.8.0",
     "@progress/kendo-react-inputs": "^5.8.0",
     "@progress/kendo-react-intl": "^5.8.0",
