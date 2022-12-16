@@ -6,6 +6,8 @@ import { Button } from "@progress/kendo-react-buttons";
 
 import SharedButtons from "../SharedComps/SharedButtons"
 import { Fade } from "@progress/kendo-react-animation";
+import { FormInput } from '../SharedComps/FormComponents';
+import { emailValidator,userNameValidator } from '../SharedComps/SharedValidators';
 
 const Styles = require("../Styles/BasicForm.css");
 const emailRegex: RegExp = new RegExp(/\S+@\S+\.\S+/);
@@ -18,7 +20,7 @@ interface State {
     success: boolean;
 }
 
-const emailValidator = (value: string) => (emailRegex.test(value) ? "" : "Please enter a valid email.");
+//const emailValidator = (value: string) => (emailRegex.test(value) ? "" : "Please enter a valid email.");
 const EmailInput = (fieldRenderProps: FieldRenderProps) => {
     const { validationMessage, visited, ...others } = fieldRenderProps;
     return (
@@ -86,8 +88,9 @@ const BasicForm = () => {
                         <fieldset className={'k-form-fieldset'}>
                             <legend className={'k-form-legend sub-text'}>Please fill in the details:</legend>
                             <div className="mb-3">
-                                <Field name={'firstName'} component={FirstNameInput} label={'First name'}
-                                    validator={nameValidator} />
+                                <Field name={'firstName'} label={'First name'}
+                                    component={FormInput}
+                                    validator={userNameValidator}/>
                             </div>
 
                             <div className="mb-3">
@@ -101,8 +104,9 @@ const BasicForm = () => {
                             </div>
 
                             <div className="mb-3">
-                                <Field name={"email"} type={"email"} component={EmailInput} label={"Email"}
-                                    validator={emailValidator} />
+                                <Field name={"email"} type={"email"} label={"Email"}
+                                     component={FormInput}
+                                     validator={emailValidator}/>
                             </div>
                         </fieldset>
                         <div className="k-form-buttons">
